@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ManagerMainPage.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="hero">
+        <nav>
+    
+            <div class="logo"> <h1 style="font-size: 20px;"> Bug Tracker </h1> </div>
+           
+
+            <div class="menu">
+                <a href="#" style="font-size: 20px;">CREATE PROJECT</a>
+                <a href="#">HOME</a>
+              
+            </div>
+
+            <img src="images/user.png" class="user-pic" ondblclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="images/user.png" alt="">
+                        <h2>Manager1</h2>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                       
+                        <img src="images/profile.png" alt="">
+                        <p>manager1@xyz.com</p>
+                        <span></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        
+                        <img src="images/profile.png" alt="">
+                        <p>13-09-2023</p>
+                        <span></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        
+                        <img src="images/profile.png" alt="">
+                        <p>17:45</p>
+                        <span></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/logout.png" alt="">
+                        <p>logout</p>
+                        <span></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+            <section>
+                <h3>WELCOME TO MANAGER PAGE</h3>
+                <h1>We <span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
+                <p>"LETS TRACK IT !"</p>
+            </section>
+        </main>
+       <div class="dropdown" >
+        <input type="text" class="text02"  style="background-color: (0, 0, 0, 0.2);" placeholder="Select Your Project" readonly>
+        <div class="option">
+            <div onclick="openLink('file:///D:/placement/c++%20stl/Hsbc%20bug%20tracking/project1.html')">Project 1</div>
+            <div onclick="openLink('https://example.com')">Project 2</div>
+            <div onclick="openLink('https://example.com')">Project 3</div>
+            <div onclick="openLink('https://example.com')">Project 4</div>
+            <!-- <div onclick="openLink('https://example.com')">Project 5</div> -->
+        </div>
+    </div>
+
+
+    </div>
+
+    <script>
+        let subMenu= document.getElementById("subMenu");
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+
+        function openLink(url) {
+        window.location.href = url;
+    }
+
+    let dropdown = document.querySelector('.dropdown');
+    dropdown.onclick = function () {
+        dropdown.classList.toggle('active');
+    }
+    </script>
+
+</body>
+
+</html>

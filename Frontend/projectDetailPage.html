@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail </title>
+    <link rel="stylesheet" href="projectDetailPage.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav>
+                <div class="logo">
+                    <h1 style="font-size: 20px;"> Bug Tracker </h1>
+                </div>
+                <div class="menu">
+                    <a href="#" style="font-size: 20px;">Main Page</a>
+                    <a href="#">Home</a>
+                    
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+
+            <form id="project-form">
+                <i class="fa-solid fa-circle-info"></i>
+                <!-- <i class="fas fa-paper-plane"></i> -->
+
+                <div class="input-group">
+                    <label>Project Name</label>
+                    <input type="text" placeholder="Project1" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label for="start-date">Start Date:</label>
+                    <input type="text" placeholder="10-02-2023" readonly>
+                </div>
+                <div class="input-group">
+                    <label>Project Manager Name</label>
+                    <input type="text" placeholder="Manager1" readonly>
+                </div>
+
+    
+                <div class="input-group">
+                    <label>Team Member</label>
+                    <!-- <input type="Text" value="In Progress" readonly> -->
+ <ol>
+    <li>Tester1</li>
+    <li>Tester2</li>
+    <li>Developer1</li>
+
+ </ol>                  
+                </div>
+
+
+
+                <legend style="color: #00b894;">Bug</legend>
+                <input type="checkbox" id="tester1" name="tester" value="Bug1"> Bug1<br>
+                <input type="checkbox" id="tester2" name="tester" value="Bug2"> Bug 2<br>
+
+
+
+                <legend style="color: #00b894;">Developers (Select only one):</legend>
+                <input type="radio" id="developer1" name="developer" value="Developer 1" > Developer 1<br>
+                <input type="radio" id="developer2" name="developer" value="Developer 2"> Developer 2<br>
+
+
+                <button type="submit">Checked</button>
+                <div id="error-message"></div>
+            </form>
+
+
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("project-form");
+            const errorMessage = document.getElementById("error-message");
+            const testerRadios = document.querySelectorAll('input[name="tester"]');
+            const developerRadios = document.querySelectorAll('input[name="developer"]');
+    
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent the form from submitting
+    
+                errorMessage.textContent = ""; // Clear any previous error message
+    
+                // Validate tester selection
+                const selectedTesters = Array.from(testerRadios).filter(radio => radio.checked);
+                if (selectedTesters.length < 1) {
+                    errorMessage.textContent = "Select at least one tester.";
+                    return; // Exit the function to prevent further processing
+                }
+    
+                // Validate developer selection
+                const selectedDevelopers = Array.from(developerRadios).filter(radio => radio.checked);
+                if (selectedDevelopers.length !== 1) {
+                    errorMessage.textContent = "Select exactly one developer.";
+                    return; // Exit the function to prevent further processing
+                }
+    
+                const selectedBug = selectedTesters.map(tester => tester.value).join(", ");
+                const selectedDeveloper = selectedDevelopers[0].value;
+    
+                // Display an alert message with bug and developer information
+                const message = `Bug(s) "${selectedBug}" is/are assigned to Developer "${selectedDeveloper}"`;
+                alert(message);
+    
+                // You can also submit the form or perform other actions here
+                // Example: form.submit();
+            });
+        });
+    </script>
+    
+    
+</body>
+
+</html>

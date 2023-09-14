@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Main</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./testmain.css">
+</head>
+<body>
+    
+<div>
+    <nav>
+      <div class="logo"> <h1 style="font-size: 20px;"> Bug Tracker </h1> </div>
+      <div class="menu">
+        <a href="reportbug.html" style="font-size: 20px;">report bug</a>
+        <!-- <a href="#">theam</a> -->
+        <a href="./homePage.html" target="_blank" onclick="logout()">logout</a>
+         <!-- <a href="#">theam</a> --> 
+      </div>
+    </nav>
+  </div>
+  <header>
+  <div class="user-info">
+    <h2 class="welcome-text">Welcome, Tester!</h2>
+    <p><strong>Username:</strong> John</p>
+    <p><strong>Email:</strong> john.doe@example.com</p>
+</div>
+
+<div class="projects">
+    <div class="project-card">
+        <h3>Project 1</h3>
+        <ul class="bug-list">
+            <li>Bug 1</li>
+            <li>Bug 2</li>
+            <li>Bug 3</li>
+        </ul>
+    </div>
+
+    <div class="project-card">
+        <h3>Project 2</h3>
+        <ul class="bug-list">
+            <li>Bug 3</li>
+            <li>Bug 4</li>
+            <li>Bug 5</li>
+        </ul>
+    </div>
+</div>
+<script>
+    function logout() {
+        // Add your logout functionality here
+        alert("Logged out successfully!");
+    }
+</script>
+</body>
+</header>
+

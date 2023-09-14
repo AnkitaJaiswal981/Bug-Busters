@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .container.login {
+            background: -webkit-linear-gradient(left, #13547a, #80d0c7);
+            margin-top: 3%;
+            padding: 3%;
+        }
+
+        .login-left {
+            text-align: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+
+        .login-left img {
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 25%;
+            -webkit-animation: mover 2s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        .login .login-form {
+            padding: 10%;
+            margin-top: 10%;
+        }
+
+        .btnLogin {
+            margin-top: 10%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #00b894; /* Updated button background color */
+            color: #fff;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-top: 8%;
+            margin-bottom: -15%;
+            color: #495057;
+        }
+        body {
+            background: linear-gradient(15deg, #245b7a 0%, #80d0c7 100%);
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Set height to 100% of viewport height */
+            margin: 0; /* Remove default margin */
+        }
+    </style>
+</head>
+<body>
+    <div class="container login">
+        <div class="row">
+            <div class="col-md-3 login-left">
+                <!-- Replace with your image URL -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIy5VFQJC3tHFIxepixov1rXBp9uK6B_e4Iw&usqp=CAU" alt="Your Image"/>
+                <h3>Welcome to Bug Tracking System</h3>
+                <!-- You can add additional text or information here -->
+            </div>
+            <div class="col-md-9 login-right">
+                <h3 class="login-heading" style="color: white;">Login</h3>
+                <form class="login-form" onsubmit="return loginUser()">
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" class="form-control" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btnLogin">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loginUser() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Implement your login logic here
+            // You can add further validation or login processing here
+            if (username === "" || password === "") {
+                alert("Both username and password are required for login.");
+                return false;
+            }
+
+            // Example: Redirect to a dashboard page after successful login
+            window.location.href = "dashboard.html";
+
+            return true; // Return false to prevent form submission
+        }
+    </script>
+
+    <!-- Add Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

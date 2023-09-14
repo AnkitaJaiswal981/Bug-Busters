@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Easy Tutorials YouTube Channel</title>
+    <link rel="stylesheet" href="imporPage.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header
+  <div>
+    <nav>
+      <div class="logo"> <h1 style="font-size: 20px;"> Bug Tracker </h1> </div>
+      <div class="menu">
+        <!-- <a href="#" style="font-size: 20px;">theam</a> -->
+        <!-- <a href="#">theam</a> -->
+        <a href="#" target="_blank">Home</a>
+
+        
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+   
+    <form id="import-form" enctype="multipart/form-data">
+      <h2 class="import-heading" style="color: white;">Import File</h2>
+        <div class="form-group">
+            <label for="file">Choose a JSON or XML file to import:</label>
+            <input type="file" id="file" name="file" accept=".json, .xml" required>
+        </div>
+        <button type="submit">Import</button>
+    </form>
+  </div>
+</header>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("project-form");
+  const startDateInput = document.getElementById("start-date");
+  const errorMessage = document.getElementById("error-message");
+  const testerRadios = document.querySelectorAll('i nput[name="tester"]');
+  const developerRadios = document.querySelectorAll('input[name="developer"]');
+  
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    const selectedDate = new Date(startDateInput.value);
+    const currentDate = new Date();
+    const minDate = new Date(currentDate);
+    minDate.setDate(currentDate.getDate() + 2); // Minimum date is current date + 2 days
+
+    if (selectedDate < minDate) {
+      errorMessage.textContent = "Start date must be at least 2 days in the future.";
+    } else {
+      // Handle the form submission here (e.g., send data to the server)
+      errorMessage.textContent = ""; // Clear any previous error message
+      // You can submit the form or perform any other action here
+      // Example: form.submit();
+    }
+    // Validate tester selection
+    const selectedTesters = Array.from(testerRadios).filter(radio => radio.checked);
+      if (selectedTesters.length < 1) {
+        errorMessage.textContent = "Select at least one tester.";
+      }
+
+      // Validate developer selection
+      const selectedDevelopers = Array.from(developerRadios).filter(radio => radio.checked);
+      if (selectedDevelopers.length !== 1) {
+        errorMessage.textContent = "Select exactly one developer.";
+      }
+
+      if (selectedTesters.length >= 1 && selectedDevelopers.length === 1) {
+        // Handle the form submission here (e.g., send data to the server)
+        // Example: form.submit();
+      }
+    
+
+
+  });
+});
+
+
+
+
+
+</script>
+   
+</body>
+</html>
